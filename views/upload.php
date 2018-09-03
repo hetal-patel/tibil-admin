@@ -1,50 +1,110 @@
 <?php 
-require "common/header.php";
-require 'server/server.php';
-require 'server/session.php';
-upload();
-
+require 'common/header.php' ;
+    require 'server/server.php';
+    require 'server/session.php';
+    upload();
 ?>
 
-<link rel="stylesheet" type="text/css" href="\css/upload.css">
-<div class="container"><!-- container -->
-	<form action="<?php $_PHP_SELF ?>" method="POST" enctype="multipart/form-data">
+<div id="wrapper">
 
-		<div class="row p-top"><!-- row -->
-			<img src="\img/tibil_logo.png" class="profile-img-card">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+           <!--      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button> -->
+                <a class="navbar-brand" href="home.php">Tibil Solutions</a>
+            </div>
+            <!-- /.navbar-header -->
 
-			<div>
-				<h3 class="txt-center">Welcome <?php echo $_SESSION['login_user']; ?></h3> 
-			</div>
-			
-			<div class="col-md-8 col-md-offset-2"><!-- col -->
-				<div class="panel panel-default panel-body"><!-- pannel -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li class="divider"></li>
+                        <li><a href="/server/server.php?fn=logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
 
-					<div class="form-group">
-						<label>Heading</label>
-						<input type="text" class="form-control" name="heading" placeholder="Heading">
-					</div>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
 
-					<div class="form-group">
-						<label >Description</label>
-						<textarea class="form-control" name="descrip" placeholder="Description"></textarea>
-					</div>
-					
-						<div class="input-group form-group">
-							<label class="input-group-btn">
-								<div class="btn btn-primary btn-file">
-									Browse <input type="file" name="f1" id="f1">
-								</div>
-							</label>
-							<input type="text" id="file_name" class="form-control" readonly>
-						</div>
-					
-					<button type="submit" class="btn btn-default form-group ">Submit</button>
-					<a href="server/server.php?fn=logout" class="p-top">Log out</a>
-				</div><!-- /pannel -->
-			</div><!-- /col -->
-		</div><!-- /row -->
-	</form><!-- /form -->
-</div><!-- /container -->
-<script type="text/javascript" src="server/upload.js"></script>
-<?php require  "common/footer.php"; ?>
+                        <li>
+                            <a href=""><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> View</a>
+                        </li>
+                        <li>
+                            <a href="../upload.php"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</a>
+
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Forms</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                         Upload file
+                     </div>
+                     <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <form  action="<?php $_PHP_SELF ?>" method="POST" >
+                                    <div class="form-group">
+                                        <label>Heading</label>
+                                        <input class="form-control" placeholder="Enter heading">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control" rows="3"></textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>File input</label>
+                                        <input type="file" name="f1" id="f1">
+                                    </div>
+
+                                    <button type="submit" name="submit1" class="btn btn-default">Submit </button>
+
+                                </form>
+                            </div>
+                            <!-- /.col-lg-6 (nested) -->
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+<?php require 'common/footer.php'; ?>

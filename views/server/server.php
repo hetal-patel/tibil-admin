@@ -30,7 +30,7 @@ function login(){
 		if($count == 1){
 			// session_register("username");
 			$_SESSION['login_user'] = "$username";
-			header("Location:/views/upload.php");
+			header("Location:/views/common/home.php");
 		}
 		else
 		{

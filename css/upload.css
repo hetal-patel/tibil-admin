@@ -1,0 +1,44 @@
+.p-top{
+	padding-top: 30px;
+}
+.p-bot{
+	padding-bottom: 10px;
+}
+.txt-center{
+	text-align: center;
+}
+.profile-img-card {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 10px;
+    display: block;
+    border-radius: 50%;
+}
+.txt-color{
+	color: #f44842;
+}
+body{
+	background-color: #F7F7F7;
+}
+a{
+	color: red;
+	font-size: 20px;
+	float: right;
+}
+a:hover{
+	color: green;
+	cursor: pointer;
+}
+h3{
+	color: blue;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 100px;
+    opacity: 0;
+    display: block;
+    cursor: pointer;
+}

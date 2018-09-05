@@ -1,98 +1,51 @@
 <?php 
 require 'common/header.php' ;
-    require 'server/server.php';
+require 'server/server.php';
     require 'server/session.php';
-    upload();
+upload();
 ?>
 
 <div id="wrapper">
+    <?php require 'common/sidebar.php'; ?>
+    <div id="page-wrapper">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-           <!--      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button> -->
-                <a class="navbar-brand" href="home.php">Tibil Solutions</a>
-            </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li class="divider"></li>
-                        <li><a href="/server/server.php?fn=logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-
-                        <li>
-                            <a href=""><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> View</a>
-                        </li>
-                        <li>
-                            <a href="../upload.php"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</a>
-
-                            <!-- /.nav-second-level -->
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
-
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Forms</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                         Upload file
-                     </div>
-                     <div class="panel-body">
+        <div class="row p-top">
+            <div class="col-sm-9">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Upload file
+                    </div>
+                    <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-6">
-                                <form  action="<?php $_PHP_SELF ?>" method="POST" >
+                            <div class="col-sm-12">
+                                <form  action="<?php $_PHP_SELF ?>" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label>Heading</label>
-                                        <input class="form-control" placeholder="Enter heading">
+                                        <input class="form-control" placeholder=" Heading" name="head">
                                     </div>
 
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea class="form-control" rows="3"></textarea>
+                                        <textarea class="form-control" rows="3" name="descrip" placeholder="Description"></textarea>
                                     </div>
                                     
                                     <div class="form-group">
                                         <label>File input</label>
-                                        <input type="file" name="f1" id="f1">
+                                        <input type="file" name="f1" accept=".jepg, .png, .zip, .jpg, .gif">
                                     </div>
 
                                     <button type="submit" name="submit1" class="btn btn-default">Submit </button>
 
                                 </form>
+                                <?php  
+
+                                if (isset($_SESSION['flash2'])) {
+                                    echo "<h4>".$_SESSION['flash2']."</h4>";
+                                    unset($_SESSION['flash2']);
+                                } 
+                                ?>
                             </div>
-                            <!-- /.col-lg-6 (nested) -->
+                            <!-- /.col-sm-8 (nested) -->
                         </div>
                         <!-- /.row (nested) -->
                     </div>
@@ -100,7 +53,7 @@ require 'common/header.php' ;
                 </div>
                 <!-- /.panel -->
             </div>
-            <!-- /.col-lg-12 -->
+            <!-- /.col-sm-9 -->
         </div>
     </div>
     <!-- /#page-wrapper -->

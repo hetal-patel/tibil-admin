@@ -40,3 +40,6 @@ h4{
 .txt-align{
     float: right;
 }
+.p-left{
+    padding-left: 120px;
+}

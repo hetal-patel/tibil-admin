@@ -9,20 +9,20 @@ require '../server/session.php';
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" >
         <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button> -->
             <a class="navbar-brand" href="home.php">Tibil Solutions</a>
 
             
         </div>
         <!-- /.navbar-header -->
 
-        <ul class="nav navbar-top-links navbar-right">
-            <a   href="home.php">Welcome <?php echo $_SESSION['login_user']; ?></a> 
+        <ul class="nav navbar-top-links navbar-right" >
+            <a   href="home.php" class="p-left"><?php echo $_SESSION['login_user']; ?></a> 
 
             <!-- /.dropdown -->
             <li class="dropdown">
